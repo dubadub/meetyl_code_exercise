@@ -1,0 +1,15 @@
+-if notice
+  .alert.alert-warning.alert-dismissible role="alert"
+    button.close data-dismiss="alert" type="button"
+      span aria-hidden="true"  &times;
+      span.sr-only Close
+    = notice
+
+h1.page-header = @picture.title
+p = image_tag @picture.file.url(:full)
+p = @picture.description
+
+
+=> link_to 'Edit', edit_picture_path(@picture)
+'|
+=> link_to 'Back', pictures_path

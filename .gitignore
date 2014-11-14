@@ -13,3 +13,6 @@
 
 # Ignore config files
 /config/*.yml
+
+# Ignore paperclip attachment
+/public/system
