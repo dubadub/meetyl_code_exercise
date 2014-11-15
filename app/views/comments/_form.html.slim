@@ -1,0 +1,6 @@
+= simple_form_for [picture, picture.comments.new],
+  html: { class: 'form-vertical', id: 'comment-form' },
+  wrapper: :vertical_form,
+  remote: true do |f|
+  = f.input :text, as: :text, label: false, placeholder: 'Type your comment...'
+  = f.button :submit

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:destroy]
 
   def index
-    @comments = @picture.comments.all
+    @comments = Comment.where_picture_id(@picture.id).to_a
   end
 
   def create
@@ -24,7 +24,6 @@ class CommentsController < ApplicationController
     def set_comment
       @comment = @picture.comments.get(params[:id])
     end
-
 
     def comment_params
       params.require(:comment).permit(:text)

@@ -16,7 +16,7 @@ gem 'jquery-rails', '~> 4.0.0.beta2'
 # Models
 gem 'jbuilder', '~> 2.0'
 %w{core constraints migrations transactions timestamps validations do-adapter
-  rails active_model postgres-adapter aggregates}.each do |gem|
+  rails active_model postgres-adapter aggregates serializer}.each do |gem|
   gem "dm-#{gem}", :git => "https://github.com/datamapper/dm-#{gem}.git", :branch => 'release-1.2'
 end
 gem 'dm-paperclip'
@@ -25,7 +25,8 @@ gem 'elasticsearch-rails'
 gem 'kaminari'
 
 # Asset pipeline
-gem 'rails-assets-bootstrap'
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~> 3.3.1'
 
 # Views
 gem 'simple_form', '~> 3.1.0.rc1'
@@ -39,4 +40,3 @@ group :development, :test do
   gem 'spring'
   gem 'web-console', '~> 2.0.0.beta4'
 end
-

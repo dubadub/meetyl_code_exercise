@@ -1,3 +1,3 @@
-$('<%= j render @comment %>').hide().appendTo('.comments').slideDown(350)
+$('<%= j render @comment %>').appendTo('.comments .list')
 
 $('#comment_text').val('')

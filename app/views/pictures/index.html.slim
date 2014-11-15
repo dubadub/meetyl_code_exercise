@@ -1,27 +1,22 @@
-h1.page-header Listing pictures
+h1.page-header Pictures
 
 .text-right
   = link_to 'New Picture', new_picture_path
 
-table.table.table-striped
-  thead
-    tr
-      th Title
-      th Description
-      th
-      th
-      th
-      th
+= render 'shared/notice' if notice
 
+table.table.table-striped
   tbody
     - @pictures.each do |picture|
       tr
-        td = picture.title
-        td = picture.description
-        td = image_tag picture.file.url(:thumb)
-        td = link_to 'Show', picture
-        td = link_to 'Edit', edit_picture_path(picture)
-        td = link_to 'Destroy', picture, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td.text-center = image_tag picture.file.url(:thumb)
+        td
+          strong = link_to picture.title, picture
+          .text-muted = picture.description
+        td
+          => link_to 'Edit', edit_picture_path(picture)
+          ' |
+          => link_to 'Destroy', picture, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 .text-center
   = paginate @pictures
