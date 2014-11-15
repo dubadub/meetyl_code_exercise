@@ -1,6 +1,3 @@
-README
-=====
-
 
 Before runnig it locally:
 
