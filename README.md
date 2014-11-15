@@ -7,3 +7,5 @@ Before runnig it locally:
 4. Run `bundle exec rake environment elasticsearch:import:all CLASS="Comment"`
 5. ...
 6. Enjoy!
+
+I used ElasticSearch version 1.3.1.
