@@ -4,6 +4,7 @@ class Picture
   include DataMapper::Validate
   include Paperclip::Resource
 
+  # Attributes
   property :id, Serial
 
   property :title, String
@@ -15,6 +16,11 @@ class Picture
       medium: '300x200>',
       thumb: '100x100#'
     }
+
+  # Relations
+  has n, :comments
+
+  # Validations
   # validates_attachment_content_type :file, content_type: /\Aimage\/.*\Z/
 
 end

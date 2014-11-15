@@ -16,4 +16,13 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "pictures", force: true do |t|
+    t.string   "title",             limit: 50
+    t.text     "description"
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
 end

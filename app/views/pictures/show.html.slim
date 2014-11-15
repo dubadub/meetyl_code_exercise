@@ -9,6 +9,17 @@ h1.page-header = @picture.title
 p = image_tag @picture.file.url(:full)
 p = @picture.description
 
+= link_to 'Show comments', picture_comments_path(@picture), remote: true, id: 'show-comments'
+.comments
+
+h3 New comment
+= simple_form_for [@picture, @picture.comments.new],
+  html: { class: 'form-vertical' },
+  wrapper: :vertical_form,
+  remote: true do |f|
+  = f.input :text, as: :text, label: false
+  = f.button :submit
+
 
 => link_to 'Edit', edit_picture_path(@picture)
 '|
