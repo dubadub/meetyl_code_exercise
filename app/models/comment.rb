@@ -4,6 +4,7 @@ require 'dm-serializer'
 class Comment
 
   include DataMapper::Resource
+  include DataMapper::Validate
   include Elasticsearch::Model
   include ActiveModel::Serializers::JSON
   include Elasticsearch::Model::Callbacks
@@ -14,6 +15,9 @@ class Comment
 
   # Relations
   belongs_to :picture
+
+  # Validations
+  validates_presence_of :text
 
   # Delegations
   delegate :title, :description, to: :picture, prefix: true
