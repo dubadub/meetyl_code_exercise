@@ -23,8 +23,22 @@ module ElasticSearch::DataMapperAdapter
 
   module Importing
     def __find_in_batches(options={}, &block)
-      # TODO write actual batches implementation
-      yield all
+      relation = self
+      batch_size = options[:batch_size] || 10
+      offset = 0
+
+      records = relation.all(limit: batch_size).to_a
+
+      while records.any?
+        records_size = records.size
+        offset += batch_size
+
+        yield records
+
+        break if records_size < batch_size
+
+        records = relation.all(offset: offset, limit: batch_size).to_a
+      end
     end
 
     def __transform
